@@ -17,7 +17,9 @@ ctx.lineWidth = 2.5;
 
 
 let painting = false;
-localStorage.setItem("cnt",0);
+let filling = false;
+
+
 
 const stop = function(){
     painting=false;
@@ -34,25 +36,26 @@ const mouseMove = function(event){
         ctx.moveTo(x, y);
     }
     else{ 
-       
+     if(!filling){
         ctx.lineTo(x, y);
         ctx.stroke();
+     }
     }
 }
 const changeColor = function(event){
     const check  = fill.innerText;
-    
-    if(check === "Paint")
-        ctx.strokeStyle = event.target.style['background-color'];//event.target.style's type is Object
+    if(check === "Paint"){
+            ctx.strokeStyle = event.target.style['background-color'];//event.target.style's type is Object
+    }
     // == event.target.style.backgroundColor
     else{
         ctx.fillStyle = event.target.style.backgroundColor;
         ctx.fillRect(0,0,canvas.width,canvas.height);
     }
-    console.log(ctx.strokeStyle,ctx.fillStyle)
+    
 }
 function contextMn(event){
-    event.preventDefault;
+    event.preventDefault();
 }
 
 if(canvas){
@@ -71,9 +74,12 @@ function rangeChange(event){
 function modeChange(event){
     if(fill.innerText === "Fill"){
         fill.innerText = "Paint";
+        filling = false;
     }
     else{
         fill.innerText = "Fill";
+        filling = true;
+        
     }
 }
 function saveImage(){
@@ -87,7 +93,7 @@ function saveImage(){
 
 }
 Array.from(color).forEach(changed => changed.addEventListener("click",changeColor))//Array.from create an array from an object
-//red argument's name and argument in front of .addEventListener's name must always be the same
+//before '=>' argument's name and argument in front of .addEventListener's name must always be the same
 
 if(range){
     range.addEventListener("input",rangeChange)
