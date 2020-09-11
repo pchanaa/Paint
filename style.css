@@ -6,6 +6,12 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding:50px 0px;
+
+    /*overflow-y: hidden; overflow-x: hidden;*/
+
+
+
     
 }
 .can{
@@ -15,12 +21,40 @@ body{
     box-shadow: 0 4px 6px rgba(50, 50,90,0.11), 0 1px 3px rgba(0,0,0,0.00), 0 3px 5px rgba(20,20,30,0.3);
     background-color:  white;
     border-radius: 20px;
+    cursor : hand;
     
 }
 
 .control{
     margin-top:70px;
+    margin-left:15px;
+    display:flex;
+    flex-direction: column;    
+    align-items: center;
+}
+.control .con_but{
+    margin-bottom: 20px;
+}
+.con_but #Mode{
+    margin-right:4px;
+
+}
+.con_but button{
     
+    all:unset;
+    background-color: white;
+    cursor: pointer;
+    padding :  5px 3px;
+    width:80px;
+    border-radius: 5px;
+    text-align:center;
+    box-shadow: 0 4px 6px rgba(50, 50,90,0.11), 0 1px 3px rgba(0,0,0,0.00), 0 3px 5px rgba(20,20,30,0.3);
+    border : solid 2px rgba(0,0,0,0.2);
+    color:black;
+    font-weight: 600;
+}
+.con_but button:active{
+    transform:scale(0.96)
 }
 .control-colors{
     
@@ -32,7 +66,12 @@ body{
 .control-color{
     width:50px;
     height:50px;
+
     border-radius: 50% ; /*if you want to make a circle, border-radius' value must have half of width and height(원을 만들고 싶다면 border-radius값을 해당 item's width and height의 절반으로 해주면 된다*/
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(50, 50,90,0.11), 0 1px 3px rgba(0,0,0,0.00), 0 3px 5px rgba(20,20,30,0.3);
+}
+
+.control .con_range{
+    margin-bottom: 25px;;
 }
